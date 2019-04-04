@@ -64,7 +64,7 @@ public class Hostel{
 
                 String reg = Integer.toString(regNo);
                     if(splited[1].equals(reg) ){
-                        return false;
+                        return true;
                     }
                 }
             }catch(Exception e){
