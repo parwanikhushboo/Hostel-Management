@@ -17,13 +17,13 @@ public class Hostel{
 	           while ((line = br.readLine()) != null) {
 	               String[] splited = line.split("\\s+");
 	               	 out.write(splited[0]);
-	                 out.newLine();
+	                 out.newLine(); 
 	               }
 	           }catch(Exception e){
 	               System.out.println(e);
 	           }
            }catch(Exception e){
-               //print
+        
                System.out.println(e);
                
            }finally{
@@ -35,12 +35,13 @@ public class Hostel{
 	             BufferedReader br = new BufferedReader(new FileReader("hostel.txt"));
 	               String line = null;
 	            
-	               //write your code here !!!
+	              
 	               while ((line = br.readLine()) != null) {
 		               String[] splited = line.split("\\s+");
 		               String checkName = splited[0];
-		               //write your code here !!!
-//		               compare check name with name and return true if present and false if not
+		               if(checkName.equals(name))
+		            	   return false;
+		               
 	               }
 	               
 	               
@@ -49,9 +50,9 @@ public class Hostel{
 	            }
 			return true;
 	   }
-       public static void allotHostel(){
-    	   //write your code here!!!
+       public static void allotHostel() throws IOException{
     	   
+    	   writedata();
        }
 
        public static boolean verifyStudent(int regNo){
@@ -75,8 +76,9 @@ public class Hostel{
        public static boolean verifyName(String name){
     	   boolean chk = true;
     	   
-    	   //write your code here
     	   
+    	   if(readData(name))
+    	   chk=false;
     	   return chk;
         }
         
@@ -105,7 +107,7 @@ public class Hostel{
             System.out.println("Enter the Reg No of the student");
             int regNo = sc.nextInt();
             sc.nextLine();
-            //verify Register number using a function verifyStudent
+            
             boolean checkStu = verifyStudent(regNo);
             boolean checkName = verifyName(name);
 
